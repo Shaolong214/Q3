@@ -6,6 +6,10 @@ import {
   fetchCategoriesFailure,
 } from '../actions/categoryActions';
 
+/**
+ * Custom Hook: useFetchCategories
+ * Returns a function to fetch categories on demand.
+ */
 const useFetchCategories = () => {
   const dispatch = useDispatch();
 

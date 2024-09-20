@@ -8,6 +8,10 @@ import { Button, Layout, Typography, Space, message } from "antd";
 const { Header, Content } = Layout;
 const { Title } = Typography;
 
+/**
+ * Component: App
+ * Main application component that includes buttons to fetch categories and displays the CategorySelector.
+ */
 const App = () => {
   const dispatch = useDispatch();
   const fetchCategories = useFetchCategories();
@@ -35,10 +39,10 @@ const App = () => {
         <Space direction="vertical" size="large" style={{ width: "100%" }}>
           <Space>
             <Button type="primary" onClick={handleSagaFetch}>
-              Fetch Categories with Redux-Saga
+              Button 1: Fetch Categories with Redux-Saga
             </Button>
             <Button type="primary" onClick={handleHookFetch}>
-              Fetch Categories with Custom Hook
+              Button 2: Fetch Categories with Custom Hook
             </Button>
           </Space>
           <CategorySelector onSelect={handleSelect} />

@@ -3,7 +3,10 @@ import { TreeSelect } from 'antd';
 import { useSelector } from 'react-redux';
 
 const { TreeNode } = TreeSelect;
-
+/**
+ * Component: CategorySelector
+ * Renders a TreeSelect component populated with category data from Redux store.
+ */
 const CategorySelector = ({ onSelect }) => {
   const categories = useSelector((state) => state.category.categories);
 
