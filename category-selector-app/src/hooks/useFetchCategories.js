@@ -1,5 +1,4 @@
-// src/hooks/useFetchCategories.js
-import { useEffect } from 'react';
+import { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import axios from 'axios';
 import {
@@ -7,23 +6,19 @@ import {
   fetchCategoriesFailure,
 } from '../actions/categoryActions';
 
-const useFetchCategories = (shouldFetch) => {
+const useFetchCategories = () => {
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    if (shouldFetch) {
-      const fetchCategories = async () => {
-        try {
-          const response = await axios.get('http://localhost:8080/categories');
-          dispatch(fetchCategoriesSuccess(response.data));
-        } catch (error) {
-          dispatch(fetchCategoriesFailure(error.message));
-        }
-      };
-
-      fetchCategories();
+  const fetchCategories = useCallback(async () => {
+    try {
+      const response = await axios.get('http://localhost:8080/categories');
+      dispatch(fetchCategoriesSuccess(response.data));
+    } catch (error) {
+      dispatch(fetchCategoriesFailure(error.message));
     }
-  }, [shouldFetch, dispatch]);
+  }, [dispatch]);
+
+  return fetchCategories;
 };
 
 export default useFetchCategories;

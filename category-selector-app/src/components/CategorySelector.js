@@ -1,8 +1,6 @@
 import React from 'react';
 import { TreeSelect } from 'antd';
 import { useSelector } from 'react-redux';
-// import 'antd/dist/antd.css';
-import 'antd/dist/reset.css';
 
 const { TreeNode } = TreeSelect;
 
